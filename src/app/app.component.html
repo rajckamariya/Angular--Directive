@@ -3,25 +3,33 @@
     <button class="btn btn-primary" (click)="onlyOdd=!onlyOdd">
       Only Odd Numbers
     </button>
-    <br>
-    <hr>
-    <br>
+    <br />
+    <hr />
+    <br />
     <div class="col-xs 12">
       <ul class="list-group">
-        <div *ngIf="onlyOdd">
-          <li class="list-group-item" *ngFor="let odd of oddNumbers" [ngClass]="{odd : odd % 2 !== 0}"
-            [ngStyle]="{background: odd % 2 === 0? 'yellow' : 'black'}">
+        <div *appUnless="onlyOdd">
+          <li
+            class="list-group-item"
+            *ngFor="let odd of oddNumbers"
+            [ngClass]="{odd : odd % 2 !== 0}"
+            [ngStyle]="{background: odd % 2 === 0? 'yellow' : 'black'}"
+          >
             {{odd}}
           </li>
         </div>
-        <div *ngIf="!onlyOdd">
-          <li class="list-group-item" *ngFor="let even of evenNumbers" [ngClass]="{odd : even % 2 !== 0}"
-            [ngStyle]="{background: even % 2 === 0? 'yellow' : 'black'}">
+        <div *appUnless="!onlyOdd">
+          <li
+            class="list-group-item"
+            *ngFor="let even of evenNumbers"
+            [ngClass]="{odd : even % 2 !== 0}"
+            [ngStyle]="{background: even % 2 === 0? 'yellow' : 'black'}"
+          >
             {{even}}
           </li>
         </div>
       </ul>
-      <br>
+      <br />
       <p appBasicHighlight>Style Me Width Basic Directive</p>
     </div>
   </div>
